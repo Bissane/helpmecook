@@ -1,0 +1,11 @@
+<ng-content></ng-content>
+<br>
+<span style="
+    display: block;
+    color: #f44336;
+    font-weight: bold;
+    margin-left: 5px;" *ngIf="queueErrorMessage" [innerHTML]="queueErrorMessage"></span>
+<br>
+
+<button type="button" mat-raised-button color="primary" *ngIf="files.length > 0" (click)="uploadAll()" class="mr-2">Publier Tout</button>
+<button type="button" mat-raised-button color="warn" *ngIf="files.length > 0" (click)="removeAll()">Terminer</button>

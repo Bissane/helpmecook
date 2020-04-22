@@ -1,0 +1,56 @@
+		<header id="site-header" class="header-footer-group" role="banner">
+
+			<div class="sympho-connect">
+					<div class="mess">
+							Agent des directions départementales<br>et des organismes satellites
+					</div>
+					<div class="redirection">
+						<a href="#" target="_self" (click)="logout()"> Se déconnecter</a>
+					</div>
+			</div>
+
+
+			<div class="header-inner section-inner">
+				<div class="header-titles-wrapper">
+					<div class="header-titles">
+					<a href="http://cd31.local/" class="custom-logo-link" rel="home">
+						<svg><use xlink:href="/assets/icons/Logo-CD31.svg#logo"></use></svg>
+					</a>
+					</div>
+					<button class="toggle nav-toggle mobile-nav-toggle" aria-expanded="false" data-set-focus=".close-nav-toggle">
+						<span class="toggle-inner">
+							<span class="toggle-icon">
+								<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="26" height="7" viewBox="0 0 26 7"><path fill-rule="evenodd" d="M332.5,45 C330.567003,45 329,43.4329966 329,41.5 C329,39.5670034 330.567003,38 332.5,38 C334.432997,38 336,39.5670034 336,41.5 C336,43.4329966 334.432997,45 332.5,45 Z M342,45 C340.067003,45 338.5,43.4329966 338.5,41.5 C338.5,39.5670034 340.067003,38 342,38 C343.932997,38 345.5,39.5670034 345.5,41.5 C345.5,43.4329966 343.932997,45 342,45 Z M351.5,45 C349.567003,45 348,43.4329966 348,41.5 C348,39.5670034 349.567003,38 351.5,38 C353.432997,38 355,39.5670034 355,41.5 C355,43.4329966 353.432997,45 351.5,45 Z" transform="translate(-329 -38)"></path></svg>							</span>
+							<span class="toggle-text">Menu</span>
+						</span>
+					</button>
+				</div>
+				<div class="col-md-12 mt-3">
+          <h1 style="text-align: center"> {{titre}} </h1>
+				</div>
+			</div>
+		</header>
+
+<script>
+
+
+	function toogleMenuModal( event ){
+
+		var modal = document.querySelector('.menu-modal');
+
+		if(modal.classList.contains('show')){
+			modal.classList.add('hide')
+			modal.remove('show');
+
+		} else {
+			modal.classList.add('show')
+			modal.remove('hide');
+		}
+
+	}
+
+	var modalMenu = document.querySelector('.mobile-nav-toggle');
+	modalMenu.addEventListener('click',toogleMenuModal)
+
+
+</script>

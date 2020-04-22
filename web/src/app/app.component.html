@@ -1,0 +1,26 @@
+<div *ngIf="name else loading" class="main-container">
+    <app-navbar-cd31 [titre]="titre"></app-navbar-cd31>
+
+    <main class="container">
+        <div class="py-5">
+<!--            <button class="btn btn-success" (click)="mailDemandeLibre()">MAIL FORMULAIRE LIBRE</button>-->
+<!--            <button class="btn btn-primary" (click)="mailDemandeNorme()">MAIL DEMANDE NORMEE</button>-->
+<!--            <button class="btn btn-danger" (click)="mailDemandeModifiee()">MAIL MODIFICATION</button>-->
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+
+    <app-footer-cd31></app-footer-cd31>
+    <ng-template #loading>
+        <div class="d-flex justify-content-center Aligner">
+            <mat-spinner color="primary"></mat-spinner>
+        </div>
+    </ng-template>
+    <ngx-spinner class="page-loader"
+            bdColor="rgba(0,0,0,0.35)"
+            size="large"
+            color="#FFF"
+            [fullScreen]="true"
+            type="ball-clip-rotate">
+    </ngx-spinner>
+</div>

@@ -1,0 +1,13 @@
+<mat-card-header class="mt-2">
+  <mat-card-title>Sélectionnez un titre</mat-card-title>
+  <mat-card-subtitle>Titre associé à l'institution</mat-card-subtitle>
+</mat-card-header>
+<mat-card-content>
+  <mat-selection-list>
+    <mat-list-option *ngFor="let titre of data.titles"
+                     [selected]="data.selected[data.partenaire]?.titre === titre.id"
+                     [value]="titre.id">
+      {{titre.intitule}}
+    </mat-list-option>
+  </mat-selection-list>
+</mat-card-content>

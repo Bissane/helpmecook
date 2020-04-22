@@ -1,0 +1,5 @@
+###> IDEs and editors
+sshkey.*
+!web/node_modules/*
+!api/vendor/*
+!api/var/cache/*

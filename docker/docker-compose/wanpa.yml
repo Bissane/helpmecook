@@ -1,0 +1,130 @@
+version: '2.1'
+
+services:
+
+  apache-wanpa-api:
+    build: ../docker-images
+    image: apache-wanpa-api:latest
+    container_name: wanpa-api
+    environment:
+      - VIRTUAL_HOST=wanpa-api.local
+    volumes:
+      - ../../wanpa-api:/var/www/html/wanpa-api
+      - /var/www/html/wanpa-api/vendor
+      - ../etc/apache2/sites-enabled/wanpa-api.local.conf:/etc/apache2/sites-enabled/wanpa-api.local.conf
+      - ../log/apache2/wanpa-api.local:/var/log/apache2/wanpa-api.local
+      - ../log/wanpa-api.local:/tmp/log
+    links:
+      - database-wanpa
+      - keycloak
+    network_mode: "bridge"
+
+  composer:
+    image: composer:latest
+    container_name: composer
+    volumes_from:
+      - apache-wanpa-api
+    working_dir: /var/www/html/wanpa-api
+
+  apache-wanpa-web:
+    image: httpd:2.4
+    container_name: wanpa-web
+    environment:
+      - VIRTUAL_HOST=wanpa-web.local
+    volumes:
+      - ../../wanpa-web/dist:/var/www/html
+      - ../etc/apache2/sites-enabled/wanpa-web-httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ../etc/apache2/sites-enabled/wanpa-web.local.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
+      - ../log/apache2/wanpa-web.local:/var/log/apache2/wanpa-web.local
+      - ../log/wanpa-web.local:/tmp/log
+    links:
+      - apache-wanpa-api
+      - keycloak
+    network_mode: "bridge"
+
+  database-wanpa:
+    image: mysql:5.7
+    container_name: wanpa-database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=keycloak
+      - MYSQL_USER=keycloak
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ../data/wanpa:/var/lib/mysql
+    ports:
+      - 3306:3306
+    network_mode: "bridge"
+
+  keycloak:
+    image: jboss/keycloak:6.0.1
+    container_name: keycloak
+    environment:
+      - DB_VENDOR=MYSQL
+      - DB_ADDR=dbase
+      - DB_DATABASE=keycloak
+      - DB_USER=keycloak
+      - DB_PASSWORD=password
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_HOSTNAME=keycloak.local
+    volumes:
+      - ../themes/wanpa:/opt/jboss/keycloak/themes/wanpa
+    links:
+      - database-wanpa:dbase
+    ports:
+      - 8080:8080
+    network_mode: "bridge"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      - VIRTUAL_HOST=phpmyadmin.local
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    links:
+      - database-wanpa:db
+    network_mode: "bridge"
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    environment:
+      - VIRTUAL_HOST=mailhog.local
+    ports: 
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    network_mode: "bridge"
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    network_mode: "bridge"
+    volumes:
+      - ../etc/nginx/uploadsize.conf:/etc/nginx/conf.d/uploadsize.conf
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+#  elasticsearch:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:6.6.2
+#    container_name: elasticsearch
+#    environment:
+#      - 'discovery.type=single-node'
+#    ports:
+#      - 9200:9200
+#      - 9300:9300
+#    network_mode: "bridge"
+#
+#  kibana:
+#    image: docker.elastic.co/kibana/kibana:6.6.2
+#    container_name: kibana
+#    depends_on:
+#      - elasticsearch
+#    links:
+#      - elasticsearch
+#    ports:
+#      - 5601:5601
+#    network_mode: "bridge"

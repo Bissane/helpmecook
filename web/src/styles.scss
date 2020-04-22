@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+$bt-primary-color: #3f51b5;
+$bt-secondary-color: #6c757d;
+$bt-disabled-color: rgba(0,0,0,.12);
+$bt-success-color: #4caf50;
+$bt-info-color: #03a9f4;
+$bt-warning-color: #ff5722;
+$bt-danger-color: #f44336;
+
+html { height: 100%; }
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.user-role.badge {
+  font-size: 80%;
+  padding: 0.3rem;
+  font-weight: normal;
+}
+
+.page-loader .overlay{
+  position: fixed !important;
+}
+
+.wnp-btn-primary {
+  background-color: $bt-primary-color !important;
+}
+
+.wnp-btn-secondary {
+  background-color: $bt-secondary-color !important;
+}
+
+.wnp-btn-success {
+  background-color: $bt-success-color !important;
+}
+
+.wnp-btn-info {
+  background-color: $bt-info-color !important;
+}
+
+.wnp-btn-warning {
+  background-color: $bt-warning-color !important;
+}
+
+.wnp-btn-danger {
+  background-color: $bt-danger-color !important;
+}
+
+.wnp-btn-primary[disabled],
+.wnp-btn-secondary[disabled],
+.wnp-btn-success[disabled],
+.wnp-btn-info[disabled],
+.wnp-btn-warning[disabled],
+.wnp-btn-danger[disabled]
+{
+  background-color: $bt-disabled-color !important;
+}
+
+//.mat-option-text {
+//  overflow: auto !important;
+//  text-overflow: unset !important;
+//}

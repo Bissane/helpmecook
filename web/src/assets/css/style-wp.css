@@ -1,0 +1,1536 @@
+/*
+Theme Name: Twenty Twenty
+Text Domain: twentytwenty
+Version: 1.1
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Our default theme for 2020 is designed to take full advantage of the flexibility of the block editor. Organizations and businesses have the ability to create dynamic landing pages with endless layouts using the group and column blocks. The centered content column and fine-tuned typography also makes it perfect for traditional blogs. Complete editor styles give you a good idea of what your content will look like, even before you publish. You can give your site a personal touch by changing the background colors and the accent color in the Customizer. The colors of all elements on your site are automatically calculated based on the colors you pick, ensuring a high, accessible color contrast for your visitors.
+Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Author: the WordPress team
+Author URI: https://wordpress.org/
+Theme URI: https://wordpress.org/themes/twentytwenty/
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned
+with others.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+
+	0. 	CSS Reset
+	1. 	Document Setup
+	2. 	Element Base
+	3. 	Helper Classes
+	4. 	Site Header
+	5. 	Menu Modal
+	6. 	Search Modal
+	7. 	Page Templates
+		a. 	Template: Cover Template
+		c. 	Template: Full Width
+	8.  Post: Archive
+	9.  Post: Single
+	10. Blocks
+	11. Entry Content
+	12. Comments
+	13. Site Pagination
+	14. Error 404
+	15. Widgets
+	16. Site Footer
+	17. Media Queries
+
+----------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	0. CSS Reset
+/* -------------------------------------------------------------------------- */
+
+
+html,
+body {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+li,
+ul {
+  border: none;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  list-style:none;
+}
+
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	1. Document Setup
+/* -------------------------------------------------------------------------- */
+
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: #f5efe0;
+  box-sizing: border-box;
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: -0.015em;
+  text-align: left;
+}
+
+
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+
+
+
+/* Base Transitions -------------------------- */
+
+a,
+path {
+  transition: all 0.15s linear;
+}
+
+
+
+
+
+
+
+/* Sections ---------------------------------- */
+
+section {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.section-inner {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 120rem;
+  width: calc(100% - 4rem);
+}
+
+.section-inner.max-percentage {
+  width: 100%;
+}
+
+.section-inner.thin {
+  max-width: 58rem;
+}
+
+.section-inner.small {
+  max-width: 80rem;
+}
+
+.section-inner.medium {
+  max-width: 100rem;
+}
+
+.section-inner.no-margin {
+  margin: 0;
+}
+
+
+/* Toggles ----------------------------------- */
+
+.toggle {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: inherit;
+  user-select: none;
+}
+
+button.toggle {
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: inherit;
+  padding: 0;
+  text-transform: none;
+}
+
+/* Hiding and Showing ------------------------ */
+
+.js .show-js {
+  display: block !important;
+}
+
+.js .hide-js {
+  display: none !important;
+}
+
+.no-js .show-no-js {
+  display: block !important;
+}
+
+.no-js .hide-no-js {
+  display: none !important;
+}
+
+
+/* Typography -------------------------------- */
+
+.font-size-xl {
+  font-size: 1.25em;
+}
+
+.font-size-xs {
+  font-size: 0.8em;
+}
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+/* Cover Modals ------------------------------ */
+
+.cover-modal {
+  display: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.cover-modal::-webkit-scrollbar {
+  display: none !important;
+}
+
+.cover-modal.show-modal {
+  display: block;
+  cursor: pointer;
+}
+
+.cover-modal.show-modal > * {
+  cursor: default;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	4.	Site Header
+/* -------------------------------------------------------------------------- */
+
+
+#site-header {
+  background: #fff;
+  position: relative;
+}
+
+.header-inner {
+  max-width: 168rem;
+  padding: 3.15rem 0;
+  z-index: 100;
+}
+
+/* Header Titles ----------------------------- */
+
+.header-titles-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 4rem;
+  text-align: center;
+}
+
+body:not(.enable-search-modal) .header-titles-wrapper {
+  justify-content: flex-start;
+  padding-left: 0;
+  text-align: left;
+}
+
+.site-title,
+.site-logo,
+.site-description {
+  margin: 0;
+}
+
+.site-title {
+  font-size: 2.1rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.site-title a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+  text-decoration: underline;
+}
+
+.site-description {
+  margin-top: 1rem;
+  color: #6d6d6d;
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: none;
+  letter-spacing: -0.0311em;
+  transition: all 0.15s linear;
+}
+
+.site-logo a,
+.site-logo img {
+  display: block;
+}
+
+.header-titles .site-logo .site-logo {
+  margin: 0;
+}
+
+.site-logo img {
+  max-height: 6rem;
+  margin: 0 auto;
+  width: auto;
+}
+
+body:not(.enable-search-modal) .site-logo img {
+  margin: 0;
+}
+
+/* Overlay Header ---------------------------- */
+
+.overlay-header #site-header {
+  background: transparent;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.overlay-header .header-inner {
+  color: #fff;
+}
+
+.overlay-header .site-description,
+.overlay-header .toggle {
+  color: inherit;
+}
+
+.overlay-header .header-inner .toggle-wrapper::before {
+  background-color: currentColor;
+  opacity: 0.25;
+}
+
+.admin-bar.overlay-header #site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+
+  .admin-bar.overlay-header #site-header {
+    top: 46px;
+  }
+}
+
+/* Header Navigation ------------------------- */
+
+.header-navigation-wrapper {
+  display: none;
+}
+
+/* Header Toggles ---------------------------- */
+
+.header-toggles {
+  display: none;
+}
+
+.header-inner .toggle {
+  align-items: center;
+  display: flex;
+  overflow: visible;
+  padding: 0 2rem;
+}
+
+.header-inner .toggle svg {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.header-inner .toggle path {
+  fill: currentColor;
+}
+
+.toggle-inner {
+  display: flex;
+  justify-content: center;
+  height: 2.3rem;
+  position: relative;
+}
+
+.toggle-icon {
+  display: block;
+  overflow: hidden;
+}
+
+.toggle-inner .toggle-text {
+  color: #6d6d6d;
+  font-size: 1rem;
+  font-weight: 600;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  width: auto;
+  white-space: nowrap;
+  word-break: break-all;
+}
+
+.overlay-header .toggle-text {
+  color: inherit;
+}
+
+.header-inner .toggle:focus .toggle-text,
+.header-inner .toggle:hover .toggle-text {
+  text-decoration: underline;
+}
+
+
+/* Navigation Toggle ------------------------- */
+
+.nav-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  width: 6.6rem;
+}
+
+.nav-toggle .toggle-icon,
+.nav-toggle svg {
+  height: 0.8rem;
+  width: 2.6rem;
+}
+
+.nav-toggle .toggle-inner {
+  padding-top: 0.8rem;
+}
+
+/* Primary Menu ---------------------------- */
+
+.primary-menu-wrapper {
+  display: none;
+}
+
+ul.primary-menu {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: -0.0277em;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: -0.8rem 0 0 -1.6rem;
+}
+
+.primary-menu .icon {
+  display: block;
+  height: 0.7rem;
+  position: absolute;
+  pointer-events: none;
+  transform: rotate(-45deg);
+  width: 1.3rem;
+}
+
+.primary-menu .icon::before,
+.primary-menu .icon::after {
+  content: "";
+  display: block;
+  background-color: currentColor;
+  position: absolute;
+  bottom: calc(50% - 0.1rem);
+  left: 0;
+}
+
+.primary-menu .icon::before {
+  height: 0.9rem;
+  width: 0.2rem;
+}
+
+.primary-menu .icon::after {
+  height: 0.2rem;
+  width: 0.9rem;
+}
+
+.primary-menu li {
+  font-size: inherit;
+  line-height: 1.25;
+  position: relative;
+}
+
+.primary-menu > li {
+  margin: 0.8rem 0 0 1.6rem;
+}
+
+.primary-menu > li.menu-item-has-children > a {
+  padding-right: 2rem;
+}
+
+.primary-menu > li > .icon {
+  right: -0.5rem;
+  top: calc(50% - 0.4rem);
+}
+
+.primary-menu a {
+  color: inherit;
+  display: block;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.primary-menu a:hover,
+.primary-menu a:focus,
+.primary-menu .current_page_ancestor {
+  text-decoration: underline;
+}
+
+.primary-menu li.current-menu-item > a,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a {
+  text-decoration: underline;
+}
+
+.primary-menu li.current-menu-item > a:hover,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a:hover,
+.primary-menu li.current-menu-item > a:focus,
+.primary-menu li.current-menu-item > .link-icon-wrapper > a:focus {
+  text-decoration: none;
+}
+
+/* Repeat previous rules for IE11 (when JS enabled for polyfill). */
+body.touch-enabled .primary-menu > li.menu-item-has-children > a {
+  padding-right: 0;
+  margin-right: 2rem;
+}
+
+body.touch-enabled .primary-menu ul li.menu-item-has-children > a {
+  margin-right: 4.5rem;
+  padding-right: 0;
+  width: unset;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*	5. Menu Modal
+/* -------------------------------------------------------------------------- */
+
+
+.menu-modal {
+  background: #fff;
+  display: none;
+  opacity: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: fixed;
+  bottom: 0;
+  left: -99999rem;
+  right: 99999rem;
+  top: 0;
+  transition: opacity 0.25s ease-in, left 0s 0.25s, right 0s 0.25s;
+  z-index: 99;
+}
+
+.admin-bar .menu-modal {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+
+  .admin-bar .menu-modal {
+    top: 46px;
+  }
+}
+
+.menu-modal.show-modal {
+  display: flex;
+}
+
+.menu-modal.active {
+  left: 0;
+  opacity: 1;
+  right: 0;
+  transition: opacity 0.25s ease-out;
+}
+
+.menu-modal-inner {
+  background: #fff;
+  display: flex;
+  justify-content: stretch;
+  overflow: auto;
+  -ms-overflow-style: auto;
+  width: 100%;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+button.close-nav-toggle {
+  align-items: center;
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 500;
+  justify-content: flex-end;
+  padding: 3.1rem 0;
+  width: 100%;
+}
+
+button.close-nav-toggle svg {
+  height: 1.6rem;
+  width: 1.6rem;
+}
+
+button.close-nav-toggle .toggle-text {
+  margin-right: 1.6rem;
+}
+
+.menu-modal .menu-top {
+  flex-shrink: 0;
+}
+
+
+/* Main Menu --------------------------------- */
+
+.modal-menu {
+  position: relative;
+  left: calc(50% - 50vw);
+  width: 100vw;
+}
+
+.modal-menu li {
+  border-color: #dedfdf;
+  border-style: solid;
+  border-width: 0.1rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 1;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.modal-menu > li > a,
+.modal-menu > li > .ancestor-wrapper > a {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.0375em;
+}
+
+.modal-menu > li:last-child {
+  border-bottom-width: 0.1rem;
+}
+
+.modal-menu .ancestor-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-menu a {
+  display: block;
+  padding: 2rem 2.5rem;
+  text-decoration: none;
+  width: 100%;
+}
+
+.modal-menu a:focus,
+.modal-menu a:hover,
+.modal-menu li.current-menu-item > .ancestor-wrapper > a,
+.modal-menu li.current_page_ancestor > .ancestor-wrapper > a {
+  text-decoration: underline;
+}
+
+button.sub-menu-toggle {
+  border-left: 0.1rem solid #dedfdf;
+  flex-shrink: 0;
+  margin: 1rem 0;
+  padding: 0 2.5rem;
+}
+
+button.sub-menu-toggle svg {
+  height: 0.9rem;
+  transition: transform 0.15s linear;
+  width: 1.5rem;
+}
+
+button.sub-menu-toggle.active svg {
+  transform: rotate(180deg);
+}
+
+.modal-menu ul {
+  display: none;
+  margin: 0;
+  width: 100%;
+}
+
+.modal-menu ul li {
+  border-left-width: 1rem;
+}
+
+.modal-menu ul li a {
+  color: inherit;
+  font-weight: 500;
+}
+
+/* Main menu animation ----------------------- */
+
+.menu-wrapper .menu-item {
+  position: relative;
+}
+
+.menu-wrapper .active {
+  display: block;
+}
+
+.menu-wrapper.is-toggling {
+  pointer-events: none;
+}
+
+.menu-wrapper.is-toggling .menu-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.menu-wrapper.is-toggling .menu-bottom .social-menu .menu-item {
+  width: auto;
+}
+
+.menu-wrapper.is-animating .menu-item,
+.menu-wrapper.is-animating .toggling-target {
+  transition-duration: 250ms;
+}
+
+.menu-wrapper.is-animating .menu-item {
+  transition-property: transform;
+}
+
+.menu-wrapper.is-toggling .toggling-target {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.menu-wrapper.is-toggling .toggling-target.active {
+  opacity: 0;
+}
+
+.menu-wrapper.is-animating.is-toggling .toggling-target {
+  display: block;
+  transition-property: opacity;
+  opacity: 0;
+}
+
+.menu-wrapper.is-animating.is-toggling .toggling-target.active {
+  opacity: 1;
+}
+
+.menu-wrapper.is-toggling .modal-menu > li:last-child li {
+  border-top-color: transparent;
+  border-bottom-width: 0.1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .menu-wrapper.is-animating .menu-item,
+  .menu-wrapper.is-animating .toggling-target {
+    transition-duration: 1ms !important;
+  }
+
+}
+
+
+/* Expanded Menu ----------------------------- */
+
+.expanded-menu {
+  display: none;
+}
+
+.mobile-menu {
+  display: block;
+}
+
+
+/* Menu Bottom ------------------------------- */
+
+.menu-bottom {
+  flex-shrink: 0;
+  padding: 4rem 0;
+}
+
+.menu-bottom nav {
+  width: 100%;
+}
+
+.menu-copyright {
+  display: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.menu-copyright a:focus,
+.menu-copyright a:hover {
+  text-decoration: underline;
+}
+
+.menu-bottom .social-menu {
+  justify-content: center;
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	7a. Template: Cover Template
+/* -------------------------------------------------------------------------- */
+
+
+.cover-header {
+  display: flex;
+  overflow: hidden;
+}
+
+.cover-header-inner-wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.cover-header-inner {
+  padding: 10rem 0 5rem 0;
+  width: 100%;
+}
+
+.cover-color-overlay,
+.cover-color-overlay::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.cover-color-overlay::before {
+  background: currentColor;
+  content: "";
+  display: block;
+}
+
+.cover-header .entry-header {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.cover-header .entry-header * {
+  color: #fff;
+}
+
+body.template-cover .entry-header {
+  background: transparent;
+  padding: 0;
+}
+
+.cover-header h1,
+.cover-header h2,
+.cover-header h3,
+.cover-header h4,
+.cover-header h5,
+.cover-header h6,
+.cover-header .faux-heading {
+  color: inherit;
+}
+
+.cover-header .entry-header a {
+  color: inherit;
+}
+
+/* Footer Top -------------------------------- */
+
+.footer-top {
+  display: flex;
+  border-bottom: 0.1rem solid #dedfdf;
+  justify-content: space-between;
+}
+
+/* FOOTER MENU */
+
+.footer-menu {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.0277em;
+}
+
+.footer-menu li {
+  line-height: 1.25;
+  margin: 0.25em 0 0 0;
+}
+
+.footer-menu a {
+  text-decoration: none;
+}
+
+.footer-menu a:hover,
+.footer-menu a:focus {
+  text-decoration: underline;
+}
+
+/* FOOTER SOCIAL */
+
+.footer-social-wrapper {
+  margin: 0;
+  width: 100%;
+}
+
+.has-footer-menu .footer-social-wrapper {
+  flex-shrink: 0;
+  margin-left: 1rem;
+  width: 50%;
+}
+
+ul.footer-social {
+  margin: -0.5rem 0 0 -0.5rem;
+}
+
+.has-footer-menu .footer-social {
+  justify-content: flex-end;
+}
+
+ul.footer-social li {
+  margin: 0.5rem 0 0 0.5rem;
+}
+
+.footer-social a {
+  background-color: #cd2653;
+  height: 3.6rem;
+  width: 3.6rem;
+}
+
+.footer-social a::before {
+  font-size: 1.6rem;
+}
+
+/* Footer Widgets ---------------------------- */
+
+.footer-widgets-outer-wrapper {
+  border-bottom: 0.1rem solid #dedfdf;
+}
+
+.footer-widgets + .footer-widgets {
+  margin-top: 3rem;
+}
+
+/* Footer Bottom ----------------------------- */
+
+#site-footer {
+  font-size: 1.6rem;
+}
+
+#site-footer .section-inner {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+#site-footer a {
+  text-decoration: none;
+}
+
+#site-footer a:focus,
+#site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright a,
+.powered-by-wordpress a {
+  color: inherit;
+}
+
+.powered-by-wordpress,
+.to-the-top {
+  color: #6d6d6d;
+}
+
+a.to-the-top > * {
+  pointer-events: none;
+}
+
+.footer-copyright {
+  font-weight: 600;
+  margin: 0;
+}
+
+.powered-by-wordpress {
+  display: none;
+  margin: 0 0 0 2.4rem;
+}
+
+.to-the-top-long {
+  display: none;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/*	17. Media Queries
+/* -------------------------------------------------------------------------- */
+
+@media ( max-width: 479px ) {
+
+  /* Blocks -------------------------------- */
+
+  .wp-block-pullquote.alignleft,
+  .wp-block-pullquote.alignright {
+    float: none;
+  }
+
+  /* Entry Content ------------------------- */
+
+  /* LISTS */
+
+  ul,
+  ol {
+    margin: 0 0 3rem 2rem;
+  }
+
+  li {
+    margin: 0.5rem 0 0 1rem;
+  }
+}
+
+
+
+@media ( min-width: 700px ) {
+
+
+  /* Site Header --------------------------- */
+
+  .header-inner {
+    padding: 3.8rem 0;
+  }
+
+  .site-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+
+  .site-description {
+    display: block;
+  }
+
+  .site-logo img {
+    max-height: 9rem;
+    transition: height 0.15s linear, width 0.15s linear, max-height 0.15s linear;
+  }
+
+  /* HEADER TOGGLES */
+
+  .toggle-inner .toggle-text {
+    font-size: 1.2rem;
+  }
+
+  .search-toggle {
+    left: 2rem;
+  }
+
+  .nav-toggle {
+    right: 2rem;
+  }
+
+
+  /* Menu Modal ---------------------------- */
+
+  button.close-nav-toggle {
+    font-size: 1.8rem;
+    padding: 4rem 0;
+  }
+
+  button.close-nav-toggle svg {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  button.close-nav-toggle .toggle-text {
+    margin-right: 2.1rem;
+  }
+
+  .modal-menu {
+    left: auto;
+    width: 100%;
+  }
+
+  .modal-menu > li > a,
+  .modal-menu > li > .ancestor-wrapper > a {
+    font-size: 2.4rem;
+    padding: 2.5rem 0;
+  }
+
+  .modal-menu ul li {
+    border-left-color: transparent;
+  }
+
+  .modal-menu > li > .ancestor-wrapper > button.sub-menu-toggle {
+    padding: 0 3rem;
+  }
+
+  .modal-menu > li > .ancestor-wrapper > button.sub-menu-toggle svg {
+    height: 1.1rem;
+    width: 1.8rem;
+  }
+
+  .menu-bottom {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 4.4rem 0;
+  }
+
+  .menu-copyright {
+    display: block;
+    flex-shrink: 0;
+    margin-right: 4rem;
+  }
+
+
+  /* POST FOOTER */
+
+  .post-meta-wrapper.post-meta-single-bottom {
+    margin-top: 4rem;
+  }
+
+
+  /* Site Footer --------------------------- */
+
+  .footer-top-visible .footer-nav-widgets-wrapper,
+  .footer-top-hidden #site-footer {
+    margin-top: 8rem;
+  }
+
+  /* FOOTER TOP */
+
+  .footer-top {
+    padding: 3.7rem 0;
+  }
+
+  .footer-menu {
+    font-size: 2.4rem;
+    margin: -0.8rem 0 0 -1.6rem;
+  }
+
+  .footer-menu li {
+    margin: 0.8rem 0 0 1.6rem;
+  }
+
+  .has-footer-menu .footer-social-wrapper {
+    flex: 1;
+    margin-left: 4rem;
+    width: auto;
+  }
+
+  /* FOOTER WIDGETS */
+
+  .footer-widgets-outer-wrapper {
+    padding: 8rem 0;
+  }
+
+  .footer-widgets-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-left: -4rem;
+    width: calc(100% + 4rem);
+  }
+
+  .footer-widgets {
+    margin-left: 4rem;
+    width: 50%;
+  }
+
+  .footer-widgets + .footer-widgets {
+    margin-top: 0;
+  }
+
+  .footer-widgets .widget {
+    border-top: none;
+    margin-top: 5rem;
+    padding-top: 0;
+  }
+
+  .footer-widgets .widget:first-child {
+    margin-top: 0;
+  }
+
+  /* FOOTER BOTTOM */
+
+  #site-footer {
+    font-size: 1.8rem;
+    /* padding: 4.3rem 0; */
+  }
+
+  .footer-credits {
+    display: flex;
+  }
+
+  .footer-copyright {
+    font-weight: 700;
+  }
+
+  .powered-by-wordpress {
+    display: block;
+  }
+
+  .to-the-top-long {
+    display: inline;
+  }
+
+  .to-the-top-short {
+    display: none;
+  }
+
+}
+
+
+
+@media ( min-width: 1000px ) {
+
+  /* Site Header --------------------------- */
+
+  #site-header {
+    z-index: 1;
+  }
+
+  .header-inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.8rem 0;
+  }
+
+  .header-titles-wrapper {
+    margin-right: 4rem;
+    max-width: 50%;
+    padding: 0;
+    text-align: left;
+  }
+
+  .header-titles {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: -1rem 0 0 -2.4rem;
+  }
+
+  .header-titles .site-title,
+  .header-titles .site-logo,
+  .header-titles .site-description {
+    margin: 1rem 0 0 2.4rem;
+  }
+
+  .wp-custom-logo .header-titles {
+    align-items: center;
+  }
+
+  /* HEADER NAVIGATION */
+
+  .header-navigation-wrapper {
+    align-items: center;
+    display: flex;
+  }
+
+  .primary-menu-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  /* HEADER TOGGLES */
+
+  .mobile-search-toggle,
+  .mobile-nav-toggle {
+    display: none !important;
+  }
+
+  .primary-menu-wrapper + .header-toggles {
+    margin-left: 3rem;
+  }
+
+  .header-toggles {
+    display: flex;
+    flex-shrink: 0;
+    margin-right: -3rem;
+  }
+
+  .header-inner .toggle {
+    height: 4.4rem;
+    padding: 0 3rem;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    width: auto;
+  }
+
+  .header-inner .toggle-wrapper {
+    position: relative;
+  }
+
+  .header-inner .toggle-wrapper::before {
+    background: #dedfdf;
+    content: "";
+    display: block;
+    height: 2.7rem;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 1.35rem);
+    width: 0.1rem;
+  }
+
+  .header-inner .toggle-wrapper:first-child::before {
+    content: none;
+  }
+
+  .header-inner .primary-menu-wrapper + .header-toggles .toggle-wrapper:first-child::before {
+    content: "";
+  }
+
+  .nav-toggle-wrapper:not(.has-expanded-menu) {
+    display: none;
+  }
+
+  .toggle-inner {
+    position: static;
+  }
+
+  .toggle-inner .toggle-text {
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: calc(100% - 0.3rem);
+    width: auto;
+  }
+
+  .header-toggles:only-child .nav-toggle .toggle-inner {
+    padding-top: 0;
+  }
+
+  .header-toggles:only-child .toggle-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .header-toggles:only-child .toggle-inner .svg-icon {
+    order: 1;
+  }
+
+  .header-toggles:only-child .toggle-inner .toggle-text {
+    position: static;
+    padding-right: 20px;
+    font-size: 15px;
+    color: inherit;
+  }
+
+  /* Menu Modal ---------------------------- */
+
+  .menu-modal {
+    opacity: 1;
+    justify-content: flex-end;
+    padding: 0;
+    transition: background-color 0.3s ease-in, left 0s 0.3s, right 0s 0.3s;
+  }
+
+  .menu-modal.cover-modal {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  .menu-modal.active {
+    background: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-out;
+  }
+
+  .menu-wrapper.section-inner {
+    width: calc(100% - 8rem);
+  }
+
+  .menu-modal-inner {
+    box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    padding: 0;
+    transform: translateX(20rem);
+    transition: transform 0.2s ease-in, opacity 0.2s ease-in;
+    width: 50rem;
+  }
+
+  .menu-modal.active .menu-modal-inner {
+    opacity: 1;
+    transform: translateX(0);
+    transition-timing-function: ease-out;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  .expanded-menu {
+    display: block;
+  }
+
+  .menu-bottom {
+    padding: 6rem 0;
+  }
+
+  .menu-bottom .social-menu {
+    justify-content: flex-start;
+  }
+
+  /* Site Footer --------------------------- */
+
+  /* FOOTER TOP */
+
+  .footer-top {
+    align-items: center;
+  }
+
+  .footer-menu {
+    align-items: baseline;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 2.1rem;
+    margin: -1.2rem 0 0 -2.4rem;
+  }
+
+  .footer-menu li {
+    margin: 1.2rem 0 0 2.4rem;
+  }
+}
+
+
+@media ( min-width: 1220px ) {
+
+
+  /* PRIMARY MENU */
+
+  ul.primary-menu {
+    margin: -0.8rem 0 0 -2.5rem;
+  }
+
+  .primary-menu > li {
+    margin: 0.8rem 0 0 2.5rem;
+  }
+
+  /* HEADER TOGGLES */
+
+  .primary-menu-wrapper + .header-toggles {
+    margin-left: 4rem;
+  }
+
+  .header-toggles {
+    margin-right: -4rem;
+  }
+
+  .header-toggles .toggle {
+    padding: 0 4rem;
+  }
+
+
+  /* Site Footer --------------------------- */
+
+  .footer-menu {
+    font-size: 2.4rem;
+    margin: -1.5rem 0 0 -3rem;
+  }
+
+  .footer-menu li {
+    margin: 1.5rem 0 0 3rem;
+  }
+
+  ul.footer-social {
+    margin: -1rem 0 0 -1rem;
+  }
+
+  ul.footer-social li {
+    margin: 1rem 0 0 1rem;
+  }
+
+  .footer-social a {
+    height: 4.4rem;
+    width: 4.4rem;
+  }
+
+  .footer-social a::before {
+    font-size: 2rem;
+  }
+
+  /* FOOTER WIDGETS */
+
+  .footer-widgets-wrapper {
+    margin-left: -6rem;
+    width: calc(100% + 6rem);
+  }
+
+  .footer-widgets {
+    margin-left: 6rem;
+  }
+
+}

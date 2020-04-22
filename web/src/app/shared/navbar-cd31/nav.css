@@ -1,0 +1,709 @@
+/*
+ * Theme Name: Twenty Twenty Child
+ * Template: twentytwenty
+ * Text Domain: twentytwenty-child
+ */
+
+
+
+/*
+*---------------------------------------------------------
+*
+*                       GENERIC
+*
+*---------------------------------------------------------
+*/
+/*
+*----------------------------------
+*      FONT FACE
+*----------------------------------
+*/
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+/*
+*----------------------------------
+*       INIT
+*----------------------------------
+*/
+* {
+  outline: none !important;
+  font-family:Poppins,Arial,cursive;
+}
+body {
+  position:relative;
+  font-family:"Poppins, cursive";
+  background-color:white;
+}
+/*
+*----------------------------------
+*      BOUTON PRINCIPAL - BLEU
+*----------------------------------
+*/
+.primaryBtn {
+  text-align: center;
+}
+
+.primaryBtn a {
+  min-width: 274px;
+  height: 50px;
+  box-shadow: 0px 3px 6px #00000029;
+  box-sizing: border-box;
+  text-align: center;
+  font: Bold 24px Poppins;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  border-radius: 0;
+  width: auto;
+  line-height: 26px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration:none;
+}
+/*
+*---------------------------------------------------------
+*
+*                       HEADER
+*
+*---------------------------------------------------------
+*/
+/*
+*----------------------------------
+*        CONNECTION CADRE
+*----------------------------------
+*/
+.sympho-connect {
+  position:absolute;
+  right:0px;
+  top:0px;
+  background-color:#F18700;
+  color:width;
+  display:flex;
+  z-index:2;
+  width: 350px;
+  height: 30px;
+}
+.sympho-connect .mess{
+  flex:1;
+  border-right:1px solid rgba(255,255,255,0.5);
+}
+.sympho-connect .redirection{
+  position:relative;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.sympho-connect .mess,  .sympho-connect .redirection a:link {
+  text-align: center;
+  font-family:'Poppins';
+  font-size:11px;
+  color:white;
+  line-height:11px;
+  top:-5px;
+}
+.sympho-connect .redirection a:link,
+.sympho-connect .redirection a:visited,
+.sympho-connect .redirection a:hover {
+  text-decoration:none;
+  font-size:14px;
+  position:relative;
+  padding-left:20px;
+  color:white !important;
+  padding-left:20px;
+}
+.sympho-connect .redirection a:after {
+  content:"";
+  display:block;
+  position:absolute;
+  width:20px;
+  height:20px;
+  left:-5px;
+  top:0px;
+  text-indent: -9999px;
+  width: 20px;
+  height: 20px;
+  /*background: url('icons/Picto-connexion-header.svg');*/
+  background-size: 20px 20px;
+}
+/*
+*----------------------------------
+*        BANNIERE
+*----------------------------------
+*/
+#site-header {
+  background: #008DAD;
+  height: 168px;
+  color:white;
+  border-top:10px solid #F18700;
+}
+.site-logo.faux-heading{
+  margin:0px;
+}
+.header-navigation-wrapper {
+  width:100%;
+}
+body:not(.overlay-header) .primary-menu  {
+  display: flex;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+body:not(.overlay-header) .primary-menu > li {
+  margin:0px;
+  padding:0px;
+}
+body:not(.overlay-header) .primary-menu > li > a{
+  color:white !important;
+  text-transform:uppercase;
+  text-decoration:none;
+  font-family:Poppins,Arial,cursive;
+  font-weight:bold;
+}
+body:not(.overlay-header) .primary-menu > li:last-child > a{
+  border:2px solid white;
+  padding:5px;
+}
+
+.menu-modal-inner.modal-inner{
+  background: #008DAD;
+
+}
+.menu-modal-inner.modal-inner a, .current-menu-item a{
+  color:white !important;
+  text-decoration:none !important;
+}
+.mobile-menu ul li {
+  border:none;
+}
+.menu-top button  {
+  color:white !important;
+  text-decoration: none !important;
+}
+.site-logo img {
+  width:200px;
+  height:100%;
+  max-height: 13rem;
+}
+.wp-block-image.alignwide.size-large{
+  margin: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header-titles{
+  position: absolute;
+  left: 0px;
+}
+.header-titles > a > svg{
+  width:180px;
+}
+.header-inner.section-inner {
+
+  position:relative;
+}
+.header-navigation-wrapper{
+  margin-top:40px;
+  margin-left:150px;
+}
+nav.primary-menu-wrapper { width:980px;}
+nav.mobile-menu {    width: 500px;
+  margin-left: auto;
+  margin-right: auto;}
+.toggle-icon svg, .toggle-icon svg path {
+  fill:white !important;
+}
+body:not(.overlay-header) .toggle-inner .toggle-text { color:white !important;font-size: 20px; font-family:"Poppins",cursive !important;}
+.menu-modal.cover-modal.header-footer-group.show-modal.active { z-index:200;}
+.toggle.nav-toggle.mobile-nav-toggle { margin-top:70px;     }
+
+.post-inner.thin {
+  padding:0px !important;
+}
+.wp-block-group.alignfull.actus{
+  margin:0px !important;
+}
+.post-meta-wrapper.post-meta-edit-link-wrapper{
+  display:none;
+}
+/*
+*---------------------------------------------------------
+*
+*                       PAGE ACCUEIL
+*
+*---------------------------------------------------------
+*/
+/*
+*----------------------------------
+*        BANNIERE HAUT DE PAGE
+*----------------------------------
+*/
+.banner-title1 {
+  background: #008DAD;
+  color:white;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  font-family:"Poppins",cursive !important;
+  font-weight:bold !important;
+  max-width:700px !important;
+  height:55px;
+  margin:0px;
+  margin-bottom:5px;
+  line-height:34px !important;
+}
+.banner-title1 + p {
+  background: #F18700;
+  color:white;
+  padding: 10px;
+  text-align: center;
+  font-size: 26px;
+  font-family:"Poppins",cursive !important;
+  font-weight:bold !important;
+  max-width:870px !important;
+  height:55px;
+  margin:0px;
+  line-height:30px !important;
+}
+/*
+*----------------------------------
+*        LIENS CATALOGUES
+*----------------------------------
+*/
+#filters-accueil {
+  max-width: calc(100% - 4rem);
+  display: flex;
+  flex-wrap: wrap;
+  list-style:none;
+  margin:0px;
+  padding:0px;
+  margin-left:auto;
+  margin-right:auto;
+  border:1px solid red;
+  justify-content: center;
+  margin-bottom:30px;
+}
+#filters-accueil > li {
+  list-style:none;
+  max-width:31%;
+  width:inherit;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin:0px;
+  padding:0px;
+}
+#filters-accueil > li .icon-accueil {
+  flex:1;
+  width:inherit;
+}
+#filters-accueil > li .icon-accueil {
+  text-align:center;
+  flex:1;
+  position:relative;
+
+}
+#filters-accueil > li .icon-accueil > svg {
+  width:236px;
+  height:236px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor:pointer;
+  display:block;
+  z-index:3;
+}
+/*
+*----------------------------------
+*    HOVER - BLOCK CATALOGUE
+*----------------------------------
+*/
+#filters-accueil > li .icon-accueil > .roll {
+  width:236px;
+  height:236px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius:50%;
+  position:absolute;
+  top:0px;
+  left:50%;
+  transform:translateX(-50%);
+  opacity:0;
+  transition:opacity 0.3s linear;
+  z-index:-1;
+}
+#filters-accueil > li .icon-accueil > svg:hover + p + div,
+#filters-accueil > li .icon-accueil > svg + p:hover + div {
+  opacity:0.2;
+}
+#filters-accueil > li .icon-accueil p {
+  font: Bold 14px Poppins;
+  width:inherit;
+  text-align:center;
+  margin-top:20px;
+  cursor:pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*
+*----------------------------------
+*   BLOCK CONTACTS - BAS DE PAGE
+*----------------------------------
+*/
+.accroche {
+  height: 61px !important;
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+
+}
+.accroche > div {
+  margin-top:-10px;
+}
+.accroche p {
+  text-align: center;
+  font: Bold 18px Poppins;
+  line-height: 21px;
+  max-width:100% !important;
+
+}
+/*
+*----------------------------------
+* BLOCK DEMANDE FORM - BAS DE PAGE
+*----------------------------------
+*/
+.demandeForm {
+  height:auto;
+  height:auto;
+  padding-top: 30px !important;
+}
+.demandeForm .presentationText,
+.presentationText{
+  font: normal 16px Poppins !important;
+  line-height: 16px !important;
+  max-width:100% !important;
+}
+/*
+*----------------------------------
+*           BLOCK ACTUS
+*----------------------------------
+*/
+.actus {
+  background-color:#EDEDED;
+  padding:20px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-top:9px solid #008DAD;
+
+}
+.actus ul {
+  justify-content: center;
+}
+.actus .wp-block-latest-posts.is-grid li {
+  max-width: 365px;
+  height: 453px;
+  border: none;
+  padding: 20px;
+  box-shadow: 0px 3px 6px #00000029;
+  background-color:white;
+}
+
+.actus .wp-block-latest-posts a {
+  text-align: center;
+  font: Bold 25px Poppins;
+  letter-spacing: 0;
+  color: #008DAD;
+  display: block;
+}
+
+.actus .wp-block-latest-posts__post-excerpt {
+  text-align: center;
+  font-family: Poppins;
+  letter-spacing: 0;
+  color: #000000;
+  font-size: 15px;
+}
+.actus h2,
+.themegroup h2,
+.content_block h2 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+/*
+*---------------------------------------------------------
+*
+*                       MEDIA QUERY
+*
+*---------------------------------------------------------
+*/
+/*
+*----------------------------------
+*           BLOCK ACTUS
+*----------------------------------
+*/
+@media (min-width: 600px){
+  .entry-content > *:first-child {
+    margin-bottom: 10rem;
+    margin-top: 10rem;
+  }
+  .header-inner.section-inner {
+    width: calc(100% - 5rem);
+  }
+  .header-titles{
+
+    top: 25px;
+
+  }
+  .demandeForm {
+    height:auto;
+  }
+}
+/*
+*----------------------------------
+*           BLOCK ACTUS
+*----------------------------------
+*/
+@media screen and (min-width: 1000px){
+  .header-inner.section-inner {
+    width: calc(100% - 10rem);
+  }
+  .header-titles{
+
+    top: 35px;
+
+  }
+  .demandeForm {
+    height:186px !important;
+  }
+}
+/*
+*----------------------------------
+*           BLOCK ACTUS
+*----------------------------------
+*/
+@media screen and (min-width: 1500px){
+  .header-inner.section-inner {
+    width: calc(100% - 45rem);
+
+  }
+
+}
+
+/*
+*---------------------------------------------------------
+*
+*                       FOOTER
+*
+*---------------------------------------------------------
+*/
+/*
+*----------------------------------
+*           GENERIC
+*----------------------------------
+*/
+#site-footer{
+  display:none;
+  margin-top:0px !important;
+}
+.footer-widgets-outer-wrapper {
+  border:none;
+}
+.footer-inner.section-inner {
+  padding-top:20px;
+  padding-bottom:20px;
+}
+#site-footer,
+.footer-nav-widgets-wrapper.header-footer-group{
+  background: #008DAD;
+  color:white;
+  margin:0px;
+}
+/*
+*----------------------------------
+*       LOGO RESEAUX SOCIAUX
+*----------------------------------
+*/
+.logoReseauSociaux {
+  padding:0px;
+  margin:0px;
+  list-style:none;
+  display:flex;
+  justify-content: center;
+}
+.logoReseauSociaux li {
+  list-style:none;
+  padding:0px;
+  margin:0px;
+}
+.logoReseauSociaux li:not(:first-child) {
+  margin-left:20px;
+}
+/*
+*----------------------------------
+*           COLONNES 1 + 2
+*----------------------------------
+*/
+.footer-nav-widgets-wrapper.header-footer-group aside {
+  margin:0px;
+  padding:0px;
+}
+/*
+*----------------------------------
+*           COLONNES 1
+*----------------------------------
+*/
+.footer-widgets.column-one.grid-item {
+  margin-left: 280px;
+  text-align:center;
+  font-family:'Poppins' !important;
+
+}
+.footer-widgets.column-one.grid-item input {
+  margin-left: auto;
+  margin-right: auto;
+}
+.footer-widgets.column-one.grid-item input,
+.footer-widgets.column-one.grid-item button {
+  width: 323px;
+  height: 47px;
+  margin-top:20px;
+}
+.footer-widgets.column-one.grid-item button {
+  background-color:black;
+  text-decoration:none;
+  line-height:13px;
+
+}
+.footer-widgets.column-one.grid-item > div:last-child {
+  margin-top:0px !important;
+}
+.footer-widgets.column-one.grid-item p {
+  font-family:'Poppins';
+  font-size:18px;
+  line-height:22px;
+  margin-top:15px;
+  margin-bottom:10px;
+}
+/*
+*----------------------------------
+*           COLONNES 2
+*----------------------------------
+*/
+.footer-widgets.column-two.grid-item {
+  margin-left: 0;
+}
+.footer-widgets.column-two.grid-item > div:first-child p {
+  text-align:center;
+}
+.footer-widgets.column-two.grid-item > div {
+  margin:0px;
+}
+.footer-widgets.column-two.grid-item > div:nth-child(2) {
+  margin-top:10px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul {
+  display:flex;
+  list-style:none;
+  margin-top:10px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li:first-child {
+  text-align:right;
+  margin-right:5px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li:last-child {
+  text-align:left;
+  margin-top:0px;
+  margin-left:5px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li {
+  list-style:none;
+  flex:1;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li * {
+  font-family:'Poppins';
+  margin:0px;
+  padding:0px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li h3 {
+  font-size:16px;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li h4 {
+  font-size:14px;
+  margin-bottom:3px;
+  white-space: nowrap;
+}
+.footer-widgets.column-two.grid-item > div:last-child ul li h5 {
+  font-size:12px;
+  font-weight:normal;
+  margin-bottom:2px;
+  position:relative;
+  padding-left: 20px;
+}
+
+.footer-widgets.column-two.grid-item > div ul li h5:nth-child(3):after {
+  content:"";
+  display:block;
+  width:15px;
+  height:15px;
+  position:absolute;
+  top:0px;
+  background:url('http://cd31.local/wp-content/uploads/2020/footer/picto-adresse.svg');
+  right: 160px;
+
+}
+.footer-widgets.column-two.grid-item > div ul li:last-child h5:nth-child(3):after,
+.footer-widgets.column-two.grid-item > div ul li:last-child h5:nth-child(4):after,
+.footer-widgets.column-two.grid-item > div ul li:last-child h5:nth-child(5):after {
+  left: 0px;
+
+}
+.footer-widgets.column-two.grid-item > div ul li h5:nth-child(4):after {
+  content:"";
+  display:block;
+  width:15px;
+  height:15px;
+  position:absolute;
+  top:0px;
+  background:url('http://cd31.local/wp-content/uploads/2020/footer/picto-telephone.svg');
+  right: 80px;
+
+}
+.footer-widgets.column-two.grid-item > div ul li h5:nth-child(5):after {
+  content:"";
+  display:block;
+  width:15px;
+  height:15px;
+  position:absolute;
+  top:0px;
+  background:url('http://cd31.local/wp-content/uploads/2020/footer/picto-email.svg');
+  right: 100px;
+
+}
+.footer-widgets-outer-wrapper {
+  position:relative;
+}
+.footer-widgets-outer-wrapper:after {
+  content:"";
+  display:block;
+  width:100px;
+  height:170px;
+  position:absolute;
+  top:40px;
+  background:url('http://cd31.local/wp-content/uploads/2020/footer/logoHG.svg');
+  background-repeat:no-repeat;
+  left: 80px;
+}
+/*
+*---------------------------------------------------------
+*
+*                       PAGE CATALOGUE
+*
+*---------------------------------------------------------
+*/
+#filters > li {
+  display:flex;
+}
+#filters svg {
+  width: 50px;
+  height: 50px;
+  fill:white;
+}
