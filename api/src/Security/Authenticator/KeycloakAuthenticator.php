@@ -132,7 +132,7 @@ class KeycloakAuthenticator extends AbstractGuardAuthenticator
             // You can set any number of default request options.
         ]);
 
-        $response = $client->get('/auth/realms/CD31/protocol/openid-connect/userinfo', [
+        $response = $client->get('/auth/realms/helpMeCook/protocol/openid-connect/userinfo', [
             'headers' => [
                 'Authorization' => $apiToken,
             ],

@@ -4,7 +4,6 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {catchError} from 'rxjs/operators';
 import {BASE_URL} from '../../app.tokens';
 import {environment} from '../../../environments/environment';
-import { Demande } from 'src/app/entities/demande';
 import { String, StringBuilder } from 'typescript-string-operations';
 import { UserService } from 'src/app/admin/services/user.service';
 import { User } from 'src/app/entities/user';

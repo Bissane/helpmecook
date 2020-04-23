@@ -6,21 +6,12 @@ export const environment = {
   production: false,
 
   // Keycloak
-  issuer: 'http://keycloak.local:8080/auth/realms/CD31',
-  apiKeycloak: 'http://keycloak.local:8080/auth/admin/realms/CD31',
+  issuer: 'http://keycloak.local:8080/auth/realms/helpMeCook',
+  apiKeycloak: 'http://keycloak.local:8080/auth/admin/realms/helpMeCook',
   apiUrl: 'http://api.local',
-  surycatUrl: 'https://api.surycat.io',
 
   // Mails
-  adresse_plateforme: 'plateforme.appui@cd31.fr',
-  mail_Title_1: 'Réception demande n°{0}',
-  attribution_1: 'Attribué chef de file',
-  attribution_2: 'Attribué chef de projet',
-  attribution_3: 'Attribué experts',
-
-  // Api Wordpress
-
-  apiWordpress: '10.89.14.101/wp-json/wp/v2'
+  adresse_plateforme: 'support@helpmecook.com',
 };
 
 /*
@@ -28,6 +19,6 @@ export const environment = {
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
  * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
+ * on performance if an error is throsewn.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.

@@ -1,8 +1,6 @@
-![wanpa](http://10.141.6.164/public/images/wanpalogoarsguyanehd.png)
+# HelpMeCook  1.0.0
 
-# WANPA  2.0.0
-
-### Exigence:
+### Exigenced:
 
 - Docker
 
@@ -12,31 +10,31 @@
 
 - NodeJS / npm
 
-### Instalation:
+### Installation:
 
 - **monter (et construire) l'environnement de développement**
 
-  - `cd wanpa2Docker`
+  - `cd docker`
 
-  - `docker-compose -f docker-projects/docker-compose/wanpa.yml up`
+  - `docker-compose -f docker-compose/docker-compose.yml up`
 
   - Exécuter en mode détaché (optionnel):
 
-    - `docker-compose -f docker-projects/docker-compose/wanpa.yml up -d`
+    - `docker-compose -f docker-compose/docker-compose.yml up -d`
 
   - Configurer le fichier hostes pour ajouter les vhosts suivant:
 
-    - `127.0.0.1 wanpa-api.local wanpa-web.local phpmyadmin.local`
+    - `127.0.0.1 api.local web.local phpmyadmin.local`
 
 ### Configuration API:
 
 - Apres avoir monter l'env de dev sous docker il faut installer les dépendances:
 
-  - `cd docker-projetcs/docker-compose/`
+  - `cd docker-compose`
 
-  - `docker-compose -f wanpa.yml run --rm composer install`
+  - `docker-compose -f docker-compose.yml run --rm composer install`
 
-- Dans un navigateur web accéder à l'api via http://wanpa-api.local
+- Dans un navigateur web accéder à l'api via http://api.local
 
 > Accès phpmyadmin: http://phpmyadmin.local
 
@@ -48,7 +46,7 @@
 
 2. List item:
 
-   - `cd wanpa-web/`
+   - `cd web/`
 
    - `npm install`
 
@@ -62,7 +60,7 @@
 >
 > - `ng build --prod`
 >
-> - Accéder à l'app via http://wanpa-web.local
+> - Accéder à l'app via http://web.local ou via localhost:4200
 
 ### Configuration SSO:
 
@@ -85,7 +83,7 @@
   ports:  
     - 8080:8080  
   links:  
-    - database-wanpa:dbase  
+    - database:dbase  
   network_mode: "bridge"
   ...
 ```

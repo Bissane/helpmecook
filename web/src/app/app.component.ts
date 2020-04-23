@@ -8,9 +8,7 @@ import { User } from './entities/user';
 import { UserIdleService } from 'angular-user-idle';
 import {UserAuthService} from './shared/services/userAuth.service';
 import {UserService} from './admin/services/user.service';
-import {DemandeService} from './shared/services/demande.service';
 import { EmailService } from './shared/services/email.service';
-import { Demande } from './entities/demande';
 import {Title} from '@angular/platform-browser';
 
 @Component({
@@ -22,14 +20,11 @@ export class AppComponent implements OnInit {
 
   userData: User | null = null;
 
-  maDemande: Demande;
-
   constructor(private oauthService: OAuthService,
               private spinner: NgxSpinnerService,
               private userIdle: UserIdleService,
               private userService: UserAuthService,
               private usersService: UserService,
-              private demandeService: DemandeService,
               private titleService: Title,
               private emailService: EmailService,
               private router: Router) {

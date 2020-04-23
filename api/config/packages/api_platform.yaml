@@ -1,6 +1,6 @@
 api_platform:
-    title: 'CD31 API'
-    description: 'CD31 WEB API'
+    title: 'HELPMECOOK API'
+    description: 'HELPMECOOK WEB API'
     version: '1.0.0'
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
